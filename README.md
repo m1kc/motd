@@ -9,6 +9,18 @@ Long story short:
 
 ## Installation
 
+### As PAM login script (recommended)
+
+1. Copy `motd.sh` to `/etc`.
+2. Edit `/etc/pam.d/system-login`:
+
+```diff
+-session    optional   pam_motd.so          motd=/etc/motd
++session    optional   pam_exec.so          stdout /etc/motd.sh
+```
+
+### As fish prompt
+
 1. Copy `motd.sh` to `/etc`.
 2. Put this into your `~/.config/fish/config.fish`:
 
