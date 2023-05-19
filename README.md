@@ -19,6 +19,23 @@ Long story short:
 +session    optional   pam_exec.so          stdout /etc/motd.sh
 ```
 
+#### For Debian ^11.6
+
+1. Copy `motd.sh` to `/etc`.
+2. Edit `/etc/pam.d/login` and `/etc/pam.d/sshd`:
+
+```diff
+-session    optional   pam_motd.so          motd=/run/motd.dynamic
++session    optional   pam_exec.so          stdout /etc/motd.sh
+```
+
+3. (Optional) Disable static motd message:
+
+Edit `/etc/pam.d/login` and `/etc/pam.d/sshd`
+```diff
+-session    optional     pam_motd.so noupdate
+```
+
 ### As fish prompt
 
 1. Copy `motd.sh` to `/etc`.
