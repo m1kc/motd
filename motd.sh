@@ -1,6 +1,7 @@
 #!/bin/bash
 
 export LANG=C  # For consistency across languages; feel free to comment that out
+PATH="$PATH:/sbin:/usr/sbin"  # for weird systems like CentOS
 
 source /etc/os-release
 echo ""
